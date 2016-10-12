@@ -62,12 +62,27 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
-} /*-------------------------------------------------------------------------*/
+	if ((s < 1) || (s > MAX_VECTOR_SIZE))
+		throw(s);
+	if ((si < 0) || (si > MAX_MATRIX_SIZE))
+		throw(si);
+	Size = s;
+	StartIndex = si;
+	pVector = new ValType[s];
+	if (pVector == NULL)
+		throw(pVector);
+}
 
 template <class ValType> //конструктор копирования
-TVector<ValType>::TVector(const TVector<ValType> &v)
+TVector<ValType>::TVector(const TVector<ValType> &v) : Size(v.Size), StartIndex(v.StartIndex) 
 {
-} /*-------------------------------------------------------------------------*/
+	pVector = new ValType[s];
+	if (pVector == NULL)
+		throw(pVector);
+	for (int i = 0; i < Size; i++) {
+		pVector[i]=v.pVector[i];
+	}
+} 
 
 template <class ValType>
 TVector<ValType>::~TVector()
