@@ -121,7 +121,7 @@ TEST(TVector, compare_equal_vectors_return_true)
   TVector<int> v(3);
   for (int i = 0; i < 3; i++)
       v[i] = i;
-  TVector<int> v1(v);
+  TVector<int> v1 = v;
 
   EXPECT_EQ(1, v == v1);
 }
@@ -145,7 +145,7 @@ TEST(TVector, can_add_scalar_to_vector)
 {
   TVector<int> v(5);
   for (int i = 0; i < 5; i++)
-      v[1] = 1;
+      v[i] = 1;
   TVector<int> v1(5);
   v = v + 5;
   for (int i = 0; i < 5; i++)
@@ -158,7 +158,7 @@ TEST(TVector, can_subtract_scalar_from_vector)
 {
   TVector<int> v(5);
   for (int i = 0; i < 5; i++)
-      v[1] = 1;
+      v[i] = 1;
   TVector<int> v1(5);
   v = v - 5;
   for (int i = 0; i < 5; i++)
@@ -172,7 +172,7 @@ TEST(TVector, can_multiply_scalar_by_vector)
   TVector<int> v(5);
   TVector<int> v1(5);
   for (int i = 0; i < 5; i++)
-	  v1[i] = 1;
+	  v[i] = 1;
   v = v * 5;
   for (int i = 0; i < 5; i++)
 	  v1[i] = 5;
