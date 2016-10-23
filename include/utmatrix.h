@@ -64,16 +64,11 @@ TVector<ValType>::TVector(int s, int si)
 {
 	if ((s < 1) || (s > MAX_VECTOR_SIZE))
 		throw(s);
-	if ((si < 0) || (si > MAX_MATRIX_SIZE))
-		throw(si);
 	Size = s;
 	StartIndex = si;
 	pVector = new ValType[s];
     if (pVector == NULL)
         throw(pVector);
-    else
-        for (int i = 0; i < s; i++)
-            pVector[i] = 0;
 }
 
 template <class ValType> //конструктор копирования
@@ -125,6 +120,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
     if (Size != v.Size) {
         delete[] pVector;
         Size = v.Size;
+        StartIndex = v.StartIndex;
         pVector = new ValType[Size];
     }
     for (int i = 0; i < Size; i++)
@@ -162,7 +158,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
-        pVector[i] += v.pVector[i];
+        pVector[i] = pVector[i] + v.pVector[i];
     return *this;
 } 
 
@@ -172,7 +168,7 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
-        pVector[i] -= v.pVector[i];
+        pVector[i] = pVector[i] - v.pVector[i];
     return *this;
 } 
 
