@@ -96,7 +96,7 @@ TEST(TVector, can_assign_vectors_of_equal_size)
   TVector<int> v(3);
   TVector<int> v1(3);
 
-  ASSERT_NO_THROW(v = v);
+  ASSERT_NO_THROW(v = v1);
 }
 
 TEST(TVector, assign_operator_change_vector_size)
@@ -121,7 +121,7 @@ TEST(TVector, compare_equal_vectors_return_true)
   TVector<int> v(3);
   for (int i = 0; i < 3; i++)
       v[i] = i;
-  TVector<int> v1 = v;
+  TVector<int> v1(v);
 
   EXPECT_EQ(1, v == v1);
 }
