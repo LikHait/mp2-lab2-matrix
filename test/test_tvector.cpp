@@ -96,7 +96,7 @@ TEST(TVector, can_assign_vectors_of_equal_size)
   TVector<int> v(3);
   TVector<int> v1(3);
 
-  ASSERT_NO_THROW(v = v);
+  ASSERT_NO_THROW(v = v1);
 }
 
 TEST(TVector, assign_operator_change_vector_size)
@@ -145,7 +145,7 @@ TEST(TVector, can_add_scalar_to_vector)
 {
   TVector<int> v(5);
   for (int i = 0; i < 5; i++)
-      v[1] = 1;
+      v[i] = 1;
   TVector<int> v1(5);
   v = v + 5;
   for (int i = 0; i < 5; i++)
@@ -158,7 +158,7 @@ TEST(TVector, can_subtract_scalar_from_vector)
 {
   TVector<int> v(5);
   for (int i = 0; i < 5; i++)
-      v[1] = 1;
+      v[i] = 1;
   TVector<int> v1(5);
   v = v - 5;
   for (int i = 0; i < 5; i++)
@@ -172,7 +172,7 @@ TEST(TVector, can_multiply_scalar_by_vector)
   TVector<int> v(5);
   TVector<int> v1(5);
   for (int i = 0; i < 5; i++)
-	  v1[i] = 1;
+	  v[i] = 1;
   v = v * 5;
   for (int i = 0; i < 5; i++)
 	  v1[i] = 5;
