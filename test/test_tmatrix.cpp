@@ -93,11 +93,11 @@ TEST(TMatrix, can_assign_matrices_of_equal_size)
     TMatrix<int>  m(5);
     TMatrix<int> m1(5);
 
-	for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
             if (i <= j)
                 m[i][j] = i + j + 1;
-    TMatrix<int> m1 = m;
+    m1 = m;
 
     EXPECT_EQ(m, m1);
 }
@@ -114,14 +114,14 @@ TEST(TMatrix, assign_operator_change_matrix_size)
 
 TEST(TMatrix, can_assign_matrices_of_different_size)
 {
-    TMatrix<int>  m(3);
-    TMatrix<int> m1(5);
+    TMatrix<int>  m(5);
+    TMatrix<int> m1(3);
 
 	for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
             if (i <= j)
-                m[i][j] = i + j + 1;
-    TMatrix<int> m1 = m;
+                m[i][j] = (i + j + 1);
+    m1 = m;
 
     EXPECT_EQ(m, m1);
 }

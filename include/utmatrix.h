@@ -124,7 +124,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
         Size = v.Size;
         pVector = new ValType[Size];
     }
-	StartIndex(v.StartIndex);
+	StartIndex = v.StartIndex;
     for (int i = 0; i < Size; i++)
         pVector[i] = v.pVector[i];
     return *this;
@@ -133,7 +133,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 template <class ValType> // прибавить скаляр
 TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
-    TVector tmp = *this;
+    TVector<ValType> tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] + val;
     return tmp;
@@ -142,7 +142,7 @@ TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 template <class ValType> // вычесть скаляр
 TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 {
-    TVector tmp = *this;
+    TVector<ValType> tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] - val;
     return tmp;
@@ -151,7 +151,7 @@ TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
-    TVector tmp = *this;
+    TVector<ValType> tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] * val;
     return tmp;
@@ -160,7 +160,7 @@ TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
-    TVector tmp = *this;
+    TVector<ValType> tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
@@ -171,7 +171,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
-    TVector tmp = *this;
+    TVector<ValType> tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
