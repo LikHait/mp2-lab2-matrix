@@ -133,45 +133,49 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 template <class ValType> // прибавить скаляр
 TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
-        pVector[i] += val;
-    return *this;
+    return tmp;
 } 
 
 template <class ValType> // вычесть скаляр
 TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 {
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
-        pVector[i] -= val;
-    return *this;
+        tmp.pVector[i] = tmp.pVector[i] - val;
+    return tmp;
 } 
 
 template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
-        pVector[i] *= val;
-    return *this;
+        tmp.pVector[i] = tmp.pVector[i] * val;
+    return tmp;
 } 
 
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
+    TVector tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
-        pVector[i] = pVector[i] + v.pVector[i];
-    return *this;
+        tmp.pVector[i] = pVector[i] + v.pVector[i];
+    return tmp;
 } 
 
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
+    TVector tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
-        pVector[i] = pVector[i] - v.pVector[i];
-    return *this;
+        tmp.pVector[i] = pVector[i] - v.pVector[i];
+    return tmp;
 } 
 
 template <class ValType> // скалярное произведение
@@ -183,7 +187,7 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
     for (int i = 0; i < Size; i++)
         tmp += pVector[i] * v.pVector[i];
     return tmp;
-} /*-------------------------------------------------------------------------*/
+}
 
 
 // Верхнетреугольная матрица
