@@ -135,6 +135,7 @@ TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
     TVector tmp = *this;
     for (int i = 0; i < Size; i++)
+        tmp.pVector[i] = tmp.pVector[i] + val;
     return tmp;
 } 
 
