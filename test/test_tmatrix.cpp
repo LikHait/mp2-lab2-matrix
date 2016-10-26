@@ -109,7 +109,7 @@ TEST(TMatrix, assign_operator_change_matrix_size)
     TMatrix<int> m1(5);
     m = m1;
 
-    EXPECT_EQ(3, m.GetSize());
+    EXPECT_EQ(5, m.GetSize());
 }
 
 TEST(TMatrix, can_assign_matrices_of_different_size)
