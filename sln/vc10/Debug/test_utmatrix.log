@@ -1,0 +1,41 @@
+﻿Build started 26.10.2016 15:51:41.
+     1>Project "E:\0826-1\mp2-lab2-matrix\sln\vc10\test_utmatrix.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\test_utmatrix.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../gtest /I../../include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\test\test_main.cpp ..\..\test\test_tmatrix.cpp ..\..\test\test_tvector.cpp
+         test_tvector.cpp
+         test_tmatrix.cpp
+     1>e:\0826-1\mp2-lab2-matrix\include\utmatrix.h(127): error C2064: term does not evaluate to a function taking 1 arguments
+                 e:\0826-1\mp2-lab2-matrix\include\utmatrix.h(121) : while compiling class template member function 'TVector<ValType> &TVector<ValType>::operator =(const TVector<ValType> &)'
+                 with
+                 [
+                     ValType=int
+                 ]
+                 e:\0826-1\mp2-lab2-matrix\include\utmatrix.h(77) : while compiling class template member function 'TVector<ValType>::TVector(const TVector<ValType> &)'
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 e:\0826-1\mp2-lab2-matrix\include\utmatrix.h(89) : while compiling class template member function 'TVector<ValType>::~TVector(void)'
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 e:\0826-1\mp2-lab2-matrix\include\utmatrix.h(197) : see reference to class template instantiation 'TVector<ValType>' being compiled
+                 with
+                 [
+                     ValType=TVector<int>
+                 ]
+                 e:\0826-1\mp2-lab2-matrix\test\test_tmatrix.cpp(7) : see reference to class template instantiation 'TMatrix<ValType>' being compiled
+                 with
+                 [
+                     ValType=int
+                 ]
+         test_main.cpp
+         Generating Code...
+     1>Done Building Project "E:\0826-1\mp2-lab2-matrix\sln\vc10\test_utmatrix.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.94
