@@ -133,7 +133,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 template <class ValType> // прибавить скаляр
 TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
-    TVector<ValType> tmp = *this;
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] + val;
     return tmp;
@@ -142,7 +142,7 @@ TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 template <class ValType> // вычесть скаляр
 TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 {
-    TVector<ValType> tmp = *this;
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] - val;
     return tmp;
@@ -151,7 +151,7 @@ TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
-    TVector<ValType> tmp = *this;
+    TVector tmp = *this;
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = tmp.pVector[i] * val;
     return tmp;
@@ -160,7 +160,7 @@ TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
-    TVector<ValType> tmp = *this;
+    TVector tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
@@ -171,7 +171,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
-    TVector<ValType> tmp = *this;
+    TVector tmp = *this;
     if (Size != v.Size)
         throw(Size);
     for (int i = 0; i < Size; i++)
@@ -272,7 +272,7 @@ TMatrix<ValType> TMatrix<ValType>::operator+(const TMatrix<ValType> &mt)
 {
 	if (Size != mt.Size)
 		throw ("matrices have different sizes");
-    TMatrix<ValType> tmp(*this);
+    TMatrix tmp(*this);
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = pVector[i] + mt.pVector[i];
     return tmp;
@@ -283,7 +283,7 @@ TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType> &mt)
 {
 	if (Size != mt.Size)
 		throw ("matrices have different sizes");
-    TMatrix<ValType> tmp(*this);
+    TMatrix tmp(*this);
     for (int i = 0; i < Size; i++)
         tmp.pVector[i] = pVector[i] - mt.pVector[i];
     return tmp;
